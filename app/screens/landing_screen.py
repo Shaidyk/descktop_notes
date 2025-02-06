@@ -4,29 +4,37 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, Q
 
 
 class LandingScreen(QWidget):
-    def __init__(self, login_callback, signin_callback):
+    def __init__(self, login_callback, signup_callback):
         super().__init__()
 
         self.login_callback = login_callback
-        self.signin_callback = signin_callback
+        self.signup_callback = signup_callback
 
         layout = QVBoxLayout()
+        self.set_layout_styles(layout)
 
-        self.label = QLabel("LogIn or Registration", alignment=Qt.AlignCenter)
+
+        self.label = QLabel("LogIn or SignUp")
         layout.addWidget(self.label)
 
         self.login_button = QPushButton("LogIn")
         self.login_button.clicked.connect(self.login)
-        self.signin_button = QPushButton("SignIn")
-        self.signin_button.clicked.connect(self.signin)
+        self.signup_button = QPushButton("SignUp")
+        self.signup_button.clicked.connect(self.signup)
 
         layout.addWidget(self.login_button)
-        layout.addWidget(self.signin_button)
+        layout.addWidget(self.signup_button)
 
         self.setLayout(layout)
 
     def login(self):
         self.login_callback()
 
-    def signin(self):
-        self.signin_callback()
+    def signup(self):
+        self.signup_callback()
+
+    def set_layout_styles(self, layout):  # noqa
+        layout.setSpacing(10)  # Отступы между элементами
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Центрируем всё
+        layout.setContentsMargins(40, 40, 40, 40)  # Внешние отступы
+        return layout

@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton, QTextEdit, QListWidget, \
     QStackedWidget, QLabel, QLineEdit
+from PySide6.QtCore import Qt
 
 
 class LoginScreen(QWidget):
@@ -10,6 +11,8 @@ class LoginScreen(QWidget):
         self.setWindowTitle('Notes - LogIn')
 
         layout = QVBoxLayout()
+
+        self.set_layout_styles(layout)
 
         self.login_label = QLabel("Login:")
         layout.addWidget(self.login_label)
@@ -29,3 +32,9 @@ class LoginScreen(QWidget):
 
     def login(self):
         self.login_callback()
+
+    def set_layout_styles(self, layout):  # noqa
+        layout.setSpacing(10)  # Отступы между элементами
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)  # Центрируем всё
+        layout.setContentsMargins(40, 40, 40, 40)  # Внешние отступы
+        return layout
