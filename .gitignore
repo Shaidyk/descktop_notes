@@ -1,0 +1,17 @@
+__pycache__/
+.sass-cache/
+*.py[cod]
+*.session
+*.session-journal
+*.sqlite3
+*$py.class
+*.sqlite3
+.env/
+.venv/
+.idea/
+.logs/*
+get_sass.sh
+get_token.sh
+!.logs/.gitkeep
+!services/telegram/resources/temp/.gitkeep
+!services/telegram/resources/sessions/.gitkeep
