@@ -5,8 +5,9 @@ from app.screens import LandingScreen, LoginScreen, SignupScreen, NotesScreen
 
 
 class NotesApp(QMainWindow):
-    def __init__(self):
+    def __init__(self, db):
         super().__init__()
+        self.db = db
 
         self.setWindowTitle('Notes')
         self.resize(600, 400)
@@ -16,9 +17,9 @@ class NotesApp(QMainWindow):
         self.setCentralWidget(self.stack)
 
         self.landing_screen = LandingScreen(self.show_login_screen, self.show_signup_screen)
-        self.login_screen = LoginScreen(self.show_notes_screen)
-        self.signup_screen = SignupScreen(self.show_notes_screen)
-        self.notes_screen = NotesScreen(self.show_landing_screen)
+        self.login_screen = LoginScreen(self.db, self.show_notes_screen)
+        self.signup_screen = SignupScreen(self.db, self.show_notes_screen)
+        self.notes_screen = NotesScreen(self.db, self.show_landing_screen)
 
         self.stack.addWidget(self.landing_screen)
         self.stack.addWidget(self.login_screen)

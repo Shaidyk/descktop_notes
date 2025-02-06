@@ -3,6 +3,7 @@ import sys
 from PySide6.QtWidgets import QApplication
 
 from app import NotesApp
+from app.database.database import DatabaseManager
 
 
 
@@ -12,9 +13,10 @@ def load_stylesheet():
 
 
 def main():
+    db = DatabaseManager()
     app = QApplication(sys.argv)
     app.setStyleSheet(load_stylesheet())
-    window = NotesApp()
+    window = NotesApp(db)
     window.show()
     sys.exit(app.exec())
 

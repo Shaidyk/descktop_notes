@@ -10,6 +10,7 @@ __pycache__/
 .venv/
 .idea/
 .logs/*
+notes.db
 get_sass.sh
 get_token.sh
 !.logs/.gitkeep

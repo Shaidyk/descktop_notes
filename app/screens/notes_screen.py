@@ -2,8 +2,9 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout, QPushButton, QTextEdit, QTre
 
 
 class NotesScreen(QWidget):
-    def __init__(self, landing_callback):
+    def __init__(self, db, landing_callback):
         super().__init__()
+        self.db = db
 
         self.landing_callback = landing_callback
 

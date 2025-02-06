@@ -4,8 +4,9 @@ from PySide6.QtCore import Qt
 
 
 class LoginScreen(QWidget):
-    def __init__(self, login_callback):
+    def __init__(self, db, login_callback):
         super().__init__()
+        self.db = db
 
         self.login_callback = login_callback
         self.setWindowTitle('Notes - LogIn')
